@@ -11,6 +11,8 @@ const DIGITS : [[&str; 11]; 7] = [
 ];
 
 fn main() {
+    print!("\x1b[2J");
+    print!("\x1b[?25l");
     loop{
         let t = Local::now();
         let time = t.format("%H:%M:%S").to_string();
@@ -25,5 +27,6 @@ fn main() {
             println!();
         }
         std::thread::sleep(std::time::Duration::from_millis(999));
+        print!("\x1b[7A");
     }
 }
